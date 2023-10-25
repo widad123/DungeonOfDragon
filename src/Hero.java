@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Hero {
+public class Hero extends character {
 
     private int m_iStrength;
     private int lifePoints;
