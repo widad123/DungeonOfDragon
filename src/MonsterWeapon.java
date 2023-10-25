@@ -25,6 +25,15 @@ public class MonsterWeapon extends Weapon{
     }
 
     public void inflictDamage(Character character) {
-
+        if (m_CriticalCountDown <= 0) {
+            // Regular damage when not in a critical state
+            int damage = getM_AttackPoints();
+            character.receiveDamages(damage);
+        } else {
+            // Critical damage when in a critical state
+            int criticalDamage = getM_AttackPoints() * 2; // Example: Double damage during critical state
+            character.receiveDamages(criticalDamage);
+            m_CriticalCountDown--;
+        }
     }
 }
