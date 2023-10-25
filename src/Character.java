@@ -10,7 +10,7 @@ public class Character {
 
     public void attack(Character p_TargetCharacter){
         if (m_Weapon != null) {
-            m_Weapon.inflictDamage(targetCharacter);
+            m_Weapon.inflictDamage(p_TargetCharacter);
         }
     }
 

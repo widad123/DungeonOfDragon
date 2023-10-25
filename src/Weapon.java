@@ -15,10 +15,9 @@ public class Weapon {
         }
         public void inflictDamage(Character p_TargetCharacter){
             if(p_TargetCharacter!=null){
-                p_TargetCharacter.reciveDamage(m_AttackPoints);
+                p_TargetCharacter.receiveDamages(m_AttackPoints);
             }
         }
-
     }
 
 
