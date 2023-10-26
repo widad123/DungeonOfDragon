@@ -3,7 +3,7 @@
  */
 public class Weapon {
 
-        private int m_AttackPoints;
+        protected int m_AttackPoints;
 
     /**
      * Constructs a new `Weapon` with the specified attack points.
