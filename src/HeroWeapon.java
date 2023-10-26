@@ -4,9 +4,9 @@
  */
 
 public class HeroWeapon extends Weapon{
-    protected int m_iAttaqueBonus;
+    private int m_iAttaqueBonus;
 
-    protected int p_iBonus;
+    public int p_iBonus;
 
     /**
      * Constructs a new `HeroWeapon` with the specified attack points and attack bonus.
