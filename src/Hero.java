@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Hero extends character {
+public class Hero  {
 
     private int m_iStrength;
     private int lifePoints;
@@ -37,6 +37,21 @@ public class Hero extends character {
             System.out.println("L'arme " + userInput + " n'a pas été trouvée dans le tableau Arslan.");
         }
     }
+    public void discoverEnemy(Monster p_Monster) {
+        String[] monsterNames = {"Troll", "Thief","Sorcerer","Zombie","Barbarian"};
+
+        for (int i = 0; i < monsterNames.length; i++) {
+            System.out.println("room" + i + ": " + monsterNames[i]);
+        }
+
+        for (int currentRoom = 0; currentRoom < monsterNames.length; currentRoom++) {
+            System.out.println("You will find a " + monsterNames[currentRoom]);
+            p_Monster.setType(monsterNames[currentRoom]);
+
+            // Simulation d'une attaque entre le héros et le monstre
+            attack(p_Monster);
+        }
+    }
 
     public void setStrength(int p_iStrength) {
         this.m_iStrength = p_iStrength;
@@ -47,7 +62,7 @@ public class Hero extends character {
     }
 
     public void improveStrength(int p_iValue) {
-        this.strengthPoints += p_iValue;
+        this.strengthPoints = p_iValue;
     }
 
     public void searchForPotion(int roomNumber, int monsterNumber) {
