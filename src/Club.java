@@ -1,14 +1,13 @@
-public class Club extends MonsterWeapon{
+/**
+ * The Club class represents a type of monster weapon known as a "Club" in the game.
+ */
+public class Club extends MonsterWeapon {
     /**
-     * The `Club` class represents a specific monster weapon: a club.
-     * This class inherits from the `MonsterWeapon` class.
+     * Constructs a Club weapon with a default name and attack bonus.
      */
     public Club() {
-        /**
-         * Default constructor for the `Club` class.
-         * Initializes the club's attack points (10), critical countdown (12), and maximum rounds before critical (9).
-         */
-        super(10,12,9);
-
+        super("Club", 12);
     }
+
+    // Here, you can customize the attributes of the Club weapon based on your game's specifications, such as the damage it inflicts.
 }
