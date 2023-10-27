@@ -1,14 +1,12 @@
-public class Arrow extends HeroWeapon {
+/**
+ * The Arrow class represents a type of weapon known as an "Arrow" in the game.
+ */
+public class Arrow extends Weapon {
+
     /**
-     * The `Arrow` class represents a specific hero weapon: an arrow.
-     * This class inherits from the `HeroWeapon` class.
+     * Constructs an Arrow weapon with a default name and attack bonus.
      */
     public Arrow() {
-        /**
-         * Default constructor for the `Arrow` class.
-         * Initializes the arrow's attack points (5) and attack bonus (3).
-         */
-        super(5,3);
-
+        super("Arrow", 5); // Example of an attack bonus for an arrow.
     }
 }
