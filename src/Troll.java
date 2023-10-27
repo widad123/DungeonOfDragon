@@ -1,19 +1,14 @@
 /**
- * The Troll class represents a type of monster known as a "Troll" in the game.
+ * The Troll class represents a type of monster called "Troll" in the game.
+ * Trolls are known for their brute strength and wield clubs as their weapons.
  */
 public class Troll extends Monster {
-
-        /**
-     * Constructs a Troll monster.
+    /**
+     * Constructs a Troll monster with a name, strength, life points, and a Club as its weapon.
      */
-    
     public Troll() {
-        super();
-        s_iNbTrollInstances++;
-        this.label = "Troll";
-        m_sEffectiveWeaponType = "Spear";
-        System.out.format("Le type de monstre est %s le nombre de %s est : %d l'arme qui lui fait des dégats à ce monstre est %s %n",this.label,this.label,s_iNbTrollInstances, m_sEffectiveWeaponType);
+        super("Troll", 40, 150, new Club());
     }
 
-
+    // Customize the attributes of the Troll based on the game's rules, such as its strength, life points, and weapon.
 }
