@@ -1,5 +1,12 @@
+/**
+ * The Sorcerer class represents a type of monster known as a "Sorcerer" in the game.
+ */
 public class Sorcerer extends Monster {
 
+        /**
+     * Constructs a Sorcerer monster.
+     */
+    
     public Sorcerer() {
         super();
         s_iNbSorcerInstances++;
