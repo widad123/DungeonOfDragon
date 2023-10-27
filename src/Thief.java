@@ -1,18 +1,12 @@
 /**
- * The Thief class represents a type of monster known as a "Thief" in the game.
+ * The Thief class represents a type of monster called "Thief" in the game.
+ * Thieves are known for their agility and use daggers as weapons.
  */
 public class Thief extends Monster {
-
-        /**
-     * Constructs a Thief monster.
+    /**
+     * Constructs a Thief monster with a name, strength, life points, and a Dagger as its weapon.
      */
-    
     public Thief() {
-        super();
-        s_iNbThiefInstances++;
-        this.label = "Thief";
-        m_sEffectiveWeaponType = "Arrow";
-        System.out.format("Le type de monstre est %s le nombre de %s est : %d l'arme qui lui fait des dégats à ce monstre est %s %n",this.label,this.label,s_iNbTrollInstances, m_sEffectiveWeaponType);
-
+        super("Thief", 30, 100, new Dagger());
     }
 }
