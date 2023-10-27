@@ -1,17 +1,13 @@
-import java.util.Random;
-
+/**
+ * The Axe class represents a type of monster weapon known as an "Axe" in the game.
+ */
 public class Axe extends MonsterWeapon {
     /**
-     * The `Axe` class represents a specific monster weapon: an axe.
-     * This class inherits from the `MonsterWeapon` class.
+     * Constructs an Axe weapon with a default name and attack bonus.
      */
     public Axe() {
-        /**
-         * Default constructor for the `Axe` class.
-         * Initializes the axe's attack points (6), critical countdown (8), and maximum rounds before critical (7).
-         */
-        super(6,8,7);
-
+        super("Axe", 10);
     }
-}
 
+    // Here, you can customize the attributes of the Axe based on your game's specifications, such as the damage it inflicts.
+}
