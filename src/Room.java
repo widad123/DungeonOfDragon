@@ -1,32 +1,38 @@
-/**
- * The Room class represents a room in the game where a monster may be encountered.
- */
-public class Room {
-    
-    /** The number of the room. */
-    private static int numRoom = 0;
+import java.util.ArrayList;
+import java.util.List;
 
-    /** The monster that may be present in the room. */
-    private Monster monster ;
-    
-    /**
-     * Constructs a room and initializes it with a room number and a potentially encountered monster.
-     */
-    
+public class Room {
+    private Monster monster; // Monstre présent dans la pièce
+    private List<Potion> items; // Liste des objets (potions) dans la pièce
+
     public Room() {
-     System.out.format("++++++++++++++++++++++++++++ Vous êtes dans la Pièce N° : %d +++++++++++++++++++++++++++++++++%n",numRoom);
-     monster = new Monster(numRoom);
-        numRoom++;
+        this.items = new ArrayList<>();
     }
 
-        /**
-     * Retrieves the monster that may be present in the room.
-     *
-     * @return The monster in the room, which may be null if no monster is present.
-     */
-    
     public Monster getMonster() {
         return monster;
     }
 
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+    }
+
+    public List<Potion> getItems() {
+        return items;
+    }
+
+    public void addItem(Potion item) {
+        items.add(item);
+    }
+
+    public boolean hasItems() {
+        return !items.isEmpty();
+    }
+
+    public Potion search() {
+        if (hasItems()) {
+            return items.remove(0); // Retire et retourne la première potion de la liste
+        }
+        return null; // Aucune potion trouvée
+    }
 }
