@@ -1,19 +1,14 @@
 /**
- * The Zombie class represents a type of monster known as a "Zombie" in the game.
+ * The Zombie class represents a zombie monster in the game.
+ * It is a type of monster with its specific attributes, such as strength, life points, and weapon.
  */
 public class Zombie extends Monster {
-
-        /**
-     * Constructs a Zombie monster.
+    /**
+     * Constructs a Zombie monster with default attributes.
      */
-    
     public Zombie() {
-        super();
-        s_iNbZombieInstances++;
-        this.label = "Zombie";
-        m_sEffectiveWeaponType = "Sword";
-        System.out.format("Le type de monstre est %s le nombre de %s est : %d l'arme qui lui fait des dégats à ce monstre est %s %n",this.label,this.label,s_iNbTrollInstances, m_sEffectiveWeaponType);
-
-
+        super("Zombie", 30, 100, new Bite());
     }
+
+    // You can customize the attributes of the Zombie based on the game rules, such as its strength, life points, and weapon.
 }
