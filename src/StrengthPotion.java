@@ -1,37 +1,16 @@
 /**
- * The StrengthPotion class represents a strength-boosting potion item in the game, which can be used by heroes.
+ * The StrengthPotion class represents potions that increase the strength of the character in the game.
+ * These potions have a name and provide a specific amount of strength points.
  */
-
-public class StrengthPotion extends Item {
-
-        /**
-     * Constructs a strength-boosting potion with the specified effect value.
+public class StrengthPotion extends Potion {
+    /**
+     * Constructs a StrengthPotion with a name and strength point value.
      *
-     * @param effectValue The amount by which the hero's strength is improved when using the potion.
+     * @param name          The name of the StrengthPotion.
+     * @param healthPoints  The amount of health points this potion restores (set to 0).
+     * @param strengthPoints The amount of strength points this potion provides.
      */
-    
-    public StrengthPotion(int effectValue) {
-        super(effectValue);
-    }
-
-        /**
-     * Applies the strength-boosting effect of the potion to a hero.
-     *
-     * @param p_hero The hero to whom the strength potion's effect is applied.
-     */
-    
-    @Override
-    public void applyEffect(Hero p_hero) {
-        p_hero.improveStrength(m_iEffectValue);
-    }
-
-        /**
-     * Gets the effect value of the strength potion, which represents the amount of strength improvement it provides.
-     *
-     * @return The effect value of the strength potion.
-     */
-    
-    public int getEffectValue() {
-        return m_iEffectValue;
+    public StrengthPotion() {
+        super("StrengthPotion", 0, 20); // Example of strength points added for a strength potion.
     }
 }
