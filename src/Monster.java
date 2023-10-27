@@ -1,96 +1,80 @@
 /**
- * The Monster class represents a generic monster in the game.
+ * The Monster class represents a type of character in the game that the hero can encounter and battle.
+ * Monsters have their own weapons and attributes.
  */
-public class Monster {
-    
-    /** The effective weapon type of the monster. */
-    public String m_sEffectiveWeaponType;
-    
-    /** The number of instances of Zombie monsters. */
-    public static  int s_iNbZombieInstances = 1;
-    
-    /** The number of instances of Thief monsters. */
-    public  static int s_iNbThiefInstances = 1;
-    
-    /** The number of instances of Sorcerer monsters. */
-    public  static int s_iNbSorcerInstances =1;
-    
-    /** The number of instances of Barbarian monsters. */
-    public static int s_iNbBarbarianInstances =1;
-    
-     /** The number of instances of Troll monsters. */
-    public  static int s_iNbTrollInstances =1;
-    
-    /** A flag to track whether the monster search has been done. */
-    private boolean m_bSearchDone;
-    
-    /** The label or name of the monster. */
-    public String label;
+public class Monster extends Character {
+    private Weapon weapon;
+    private int attackCount;
 
-    /** Default constructor for the Monster class. */
-    public Monster(){}
+    private static final int MAX_ROUNDS_BEFORE_CRITICAL = 4;
 
     /**
-     * Constructor that takes the room number as a parameter to determine the monster type.
+     * Constructs a Monster with a name, strength, life points, and a weapon.
      *
-     * @param nbRoom The room number used to determine the monster type.
+     * @param name       The name of the Monster.
+     * @param strength   The strength of the Monster.
+     * @param lifePoints The initial life points of the Monster.
+     * @param weapon     The weapon equipped by the Monster.
      */
+    public Monster(String name, int strength, int lifePoints, Weapon weapon) {
+        super(name, strength, lifePoints);
+        this.weapon = weapon;
+        this.attackCount = 0;
+    }
 
-    public Monster(int nbRoom) {
-       if (nbRoom % 4 == 0){
-            Thief voleur = new Thief();
-       }else if (nbRoom % 3 == 0){
-            Troll troll = new Troll();
-        }else if (nbRoom > 3 && isPrime(nbRoom) ){
-            Sorcerer sorcier = new Sorcerer();
-        }else if (nbRoom % 4 == 0 && nbRoom % 3 == 0){
-            Barbarian barbare = new Barbarian();
-        }else{
-            Zombie zombie = new Zombie();
+    /**
+     * Performs an attack on the hero using the Monster's weapon.
+     *
+     * @param hero The hero to attack.
+     * @return The damage inflicted on the hero.
+     */
+    public int attack(Hero hero) {
+        int damage = weapon.getAttackBonus();
+
+        // Check for critical attack
+        if (++attackCount % getCriticalAttackFrequency() == 0) {
+            damage *= 2;
+            System.out.println("Critical attack, twice the damage");
+        }
+
+        hero.receiveDamage(damage);
+        System.out.println("The " + weapon.getClass().getSimpleName() + " is inflicting " + damage + " damages to the hero");
+        System.out.println("Hero has been hit and has now " + hero.getLifePoints() + " life points left");
+        return damage;
+    }
+
+    /**
+     * Get the type of the Monster's effective weapon.
+     *
+     * @return The type of the Monster's effective weapon.
+     */
+    public String getEffectiveWeaponType() {
+        return weapon.getClass().getSimpleName();
+    }
+
+    // Abstract method to get the critical attack frequency for each type of monster.
+    protected int getCriticalAttackFrequency() {
+        return 4; // Default is one critical attack every 4 turns.
+    }
+
+    // Method to determine if the Monster performs a critical attack.
+    public boolean isCriticalAttack() {
+        return (attackCount % MAX_ROUNDS_BEFORE_CRITICAL) == 0;
+    }
+
+    private Map<Class<? extends Potion>, Integer> potions = new HashMap<>();
+
+    /**
+     * Add a potion to the Monster's inventory.
+     *
+     * @param potionType The type of potion to add.
+     */
+    public void addPotion(Class<? extends Potion> potionType) {
+        if (potions.containsKey(potionType)) {
+            int count = potions.get(potionType);
+            potions put(potionType, count + 1);
+        } else {
+            potions.put(potionType, 1);
         }
     }
-
-    /**
-     * Checks if a number is prime.
-     *
-     * @param number The integer to be checked for primality.
-     * @return True if the number is prime; otherwise, false.
-     */
-    
-    public boolean isPrime(int nombre){
-            if (nombre <= 1) {
-                return false; // Les nombres négatifs, 0 et 1 ne sont pas premiers.
-            }
-
-            for (int i = 2; i <= Math.sqrt(nombre); i++) {
-                if (nombre % i == 0) {
-                    return false; // Le nombre est divisible par i, donc il n'est pas premier.
-                }
-            }
-
-            return true; // Si aucun diviseur n'a été trouvé, le nombre est premier
-    }
-
-    /**
-     * Gets the effective weapon type of the monster.
-     *
-     * @return The effective weapon type of the monster.
-     */
-    
-    public String getEffectiveWeaponType(){
-        return m_sEffectiveWeaponType;
-    }
-
-    /**
-     * Simulates an attack by the monster on a target character.
-     *
-     * @param p_TargetCharacter The character to be attacked by the monster.
-     */
-    public void attack(Character p_TargetCharacter){
-
-    }
-
-    //public boolean isWeaponEfficient(Weapon p_Weapon){
-      //  return false;
-    //}
 }
