@@ -1,15 +1,16 @@
-public class Lightning extends MonsterWeapon{
+/**
+ * The Lightning class represents a powerful monster weapon, which can be used by certain monsters in the game.
+ */
+public class Lightning extends MonsterWeapon {
     /**
-     * The `Lightning` class represents a specific monster weapon: lightning.
-     * This class inherits from the `MonsterWeapon` class.
+     * Constructs a Lightning weapon with a name and specified damage value.
+     *
+     * @param name    The name of the Lightning weapon.
+     * @param damage  The damage value of the Lightning weapon.
      */
     public Lightning() {
-        /**
-         * Default constructor for the `Lightning` class.
-         * Initializes the lightning's attack points (8), critical countdown (10), and maximum rounds before critical (8).
-         */
-        super(8,10,8);
-
+        super("Lightning", 15); // Customize the damage value if needed for your game.
     }
 
+    // You can add more specific attributes or descriptions about the Lightning weapon if required.
 }
