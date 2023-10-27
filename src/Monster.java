@@ -1,22 +1,39 @@
+/**
+ * The Monster class represents a generic monster in the game.
+ */
 public class Monster {
+    
+    /** The effective weapon type of the monster. */
     public String m_sEffectiveWeaponType;
+    
+    /** The number of instances of Zombie monsters. */
     public static  int s_iNbZombieInstances = 1;
+    
+    /** The number of instances of Thief monsters. */
     public  static int s_iNbThiefInstances = 1;
+    
+    /** The number of instances of Sorcerer monsters. */
     public  static int s_iNbSorcerInstances =1;
+    
+    /** The number of instances of Barbarian monsters. */
     public static int s_iNbBarbarianInstances =1;
+    
+     /** The number of instances of Troll monsters. */
     public  static int s_iNbTrollInstances =1;
+    
+    /** A flag to track whether the monster search has been done. */
     private boolean m_bSearchDone;
+    
+    /** The label or name of the monster. */
     public String label;
 
-    /***
-     * Constructeur sans variable
-     */
+    /** Default constructor for the Monster class. */
     public Monster(){}
 
-    /***
-     * Constructeur qui prend le numero de la chambre en paramètre
-     * @param nbRoom
+    /**
+     * Constructor that takes the room number as a parameter to determine the monster type.
      *
+     * @param nbRoom The room number used to determine the monster type.
      */
 
     public Monster(int nbRoom) {
@@ -33,10 +50,13 @@ public class Monster {
         }
     }
 
-    /***
-     * Fonction qui vérifier si le nombre en paramètre est premier
-     * @param nombre entier
+    /**
+     * Checks if a number is prime.
+     *
+     * @param number The integer to be checked for primality.
+     * @return True if the number is prime; otherwise, false.
      */
+    
     public boolean isPrime(int nombre){
             if (nombre <= 1) {
                 return false; // Les nombres négatifs, 0 et 1 ne sont pas premiers.
@@ -51,15 +71,21 @@ public class Monster {
             return true; // Si aucun diviseur n'a été trouvé, le nombre est premier
     }
 
-    /***
-     * getter pour récuperer la valeur de m_sEffectiveWeaponType
+    /**
+     * Gets the effective weapon type of the monster.
+     *
+     * @return The effective weapon type of the monster.
      */
-
+    
     public String getEffectiveWeaponType(){
         return m_sEffectiveWeaponType;
     }
 
-
+    /**
+     * Simulates an attack by the monster on a target character.
+     *
+     * @param p_TargetCharacter The character to be attacked by the monster.
+     */
     public void attack(Character p_TargetCharacter){
 
     }
