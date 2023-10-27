@@ -1,5 +1,12 @@
+/**
+ * The Zombie class represents a type of monster known as a "Zombie" in the game.
+ */
 public class Zombie extends Monster {
 
+        /**
+     * Constructs a Zombie monster.
+     */
+    
     public Zombie() {
         super();
         s_iNbZombieInstances++;
