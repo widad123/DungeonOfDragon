@@ -1,39 +1,23 @@
-/**
- * The Item class represents an abstract item in the game.
- */
+public class Potion {
+    private String name;
+    private int healthPoints;
+    private int strengthPoints;
 
-public abstract class Item {
-
-    /** The effect value of the item. */
-    protected int m_iEffectValue;
-
-    /**
-     * Applies the effect of the item to a hero.
-     *
-     * @param p_Hero The hero to whom the item's effect is applied.
-     */
-
-    public Item(int effectValue) {
-        this.m_iEffectValue = effectValue;
+    public Potion(String name, int healthPoints, int strengthPoints) {
+        this.name = name;
+        this.healthPoints = healthPoints;
+        this.strengthPoints = strengthPoints;
     }
 
-    /**
-     * Applies the effect of the item to a hero.
-     *
-     * @param p_Hero The hero to whom the item's effect is applied.
-     */
-    
-    public abstract void applyEffect(Hero p_Hero);
-
-    /**
-     * Sets the effect value of the item to a new value.
-     *
-     * @param p_iValue The new effect value for the item.
-     */
-
-    public void setValue(int p_iValue) {
-        this.m_iEffectValue = p_iValue;
+    public String getName() {
+        return name;
     }
 
+    public int getHealthPoints() {
+        return healthPoints;
+    }
 
+    public int getStrengthPoints() {
+        return strengthPoints;
+    }
 }
