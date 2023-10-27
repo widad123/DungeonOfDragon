@@ -1,5 +1,12 @@
+/**
+ * The Troll class represents a type of monster known as a "Troll" in the game.
+ */
 public class Troll extends Monster {
 
+        /**
+     * Constructs a Troll monster.
+     */
+    
     public Troll() {
         super();
         s_iNbTrollInstances++;
