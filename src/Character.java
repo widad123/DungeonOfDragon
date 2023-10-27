@@ -1,81 +1,105 @@
 /**
  * The Character class represents a generic character in the game.
  */
-
 public class Character {
+    private String name;
+    private int lifePoints;
+    private int strength;
 
-    /** The character's remaining life points. */
-    protected int m_iLifePoints;
-
-    /** The character's equipped weapon. */
-    protected Weapon m_Weapon;
-
-    
     /**
-     * Constructs a character with the specified number of life points.
+     * Constructs a character with the specified name, life points, and strength.
      *
-     * @param LifePoints The initial number of life points for the character.
+     * @param name The name of the character.
+     * @param lifePoints The initial life points of the character.
+     * @param strength The initial strength of the character.
      */
-    
-    public Character(int LifePoints){
-        this.m_iLifePoints= LifePoints;
-        
+    public Character(String name, int lifePoints, int strength) {
+        this.name = name;
+        this.lifePoints = lifePoints;
+        this.strength = strength;
     }
 
-     /**
-     * Attacks another character using the equipped weapon.
+    /**
+     * Gets the name of the character.
      *
-     * @param p_TargetCharacter The target character to attack.
+     * @return The name of the character.
      */
-    
-    public void attack(Character p_TargetCharacter){
-        if (m_Weapon != null) {
-            m_Weapon.inflictDamage(p_TargetCharacter);
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Gets the current life points of the character.
+     *
+     * @return The current life points of the character.
+     */
+    public int getLifePoints() {
+        return lifePoints;
+    }
+
+    /**
+     * Gets the current strength of the character.
+     *
+     * @return The current strength of the character.
+     */
+    public int getStrength() {
+        return strength;
+    }
+
+    /**
+     * Sets the life points of the character to the specified value.
+     *
+     * @param lifePoints The new life points of the character.
+     */
+    public void setLifePoints(int lifePoints) {
+        this.lifePoints = lifePoints;
+    }
+
+    /**
+     * Sets the strength of the character to the specified value.
+     *
+     * @param strength The new strength of the character.
+     */
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
+
+    /**
+     * Checks if the character is alive based on their remaining life points.
+     *
+     * @return True if the character is alive, otherwise false.
+     */
+    public boolean isAlive() {
+        return lifePoints > 0;
+    }
+
+    /**
+     * Receives damage and updates the character's life points. If life points become negative, they are set to 0.
+     *
+     * @param damage The amount of damage to be received.
+     */
+    public void receiveDamage(int damage) {
+        lifePoints -= damage;
+        if (lifePoints < 0) {
+            lifePoints = 0;
         }
     }
 
-        /**
-     * Gets the current number of life points of the character.
+    /**
+     * Improves the character's health points by the specified amount.
      *
-     * @return The current number of life points.
+     * @param points The number of health points to be added to the character's life points.
      */
-    
-    public int getNbLifePoints(){
-        return m_iLifePoints;
+    public void improveHealth(int points) {
+        lifePoints += points;
     }
 
-     /**
-     * Reduces the character's life points by the specified amount of damage.
+    /**
+     * Improves the character's strength by the specified amount.
      *
-     * @param p_iDamages The amount of damage the character should receive.
+     * @param points The number of strength points to be added to the character's strength.
      */
-    
-
-    public void receiveDamages(int p_iDamages){
-
-        m_iLifePoints -= p_iDamages;
-
-    }
-
-        /**
-     * Checks if the character is alive based on their remaining life points.
-     *
-     * @return True if the character is alive, false otherwise.
-     */
-    
-    public boolean isAlive(){
-
-        if (m_iLifePoints>0) return true;
-        else return false;
-    }
-
-        /**
-     * Sets the character's equipped weapon.
-     *
-     * @param weapon The weapon to equip.
-     */
-    
-    public void setWeapon(Weapon weapon) {
-        this.m_Weapon = weapon;
+    public void improveStrength(int points) {
+        strength += points;
     }
 }
