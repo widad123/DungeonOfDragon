@@ -1,51 +1,37 @@
 /**
- * The `Weapon` class represents a generic weapon that can inflict damage.
+ * The Weapon class represents a weapon that can be used by characters in the game.
+ * It includes the name of the weapon and its attack bonus.
  */
 public class Weapon {
-
-        protected int m_AttackPoints;
-
-    /**
-     * Constructs a new `Weapon` with the specified attack points.
-     *
-     * @param m_AttackPoints The attack points of the weapon.
-     */
-
-        public Weapon(int m_AttackPoints) {
-            this.m_AttackPoints = m_AttackPoints;
-        }
+    private String name;
+    private int attackBonus;
 
     /**
-     * Get the attack points of the weapon.
+     * Constructs a weapon with a given name and attack bonus.
      *
-     * @return The attack points of the weapon.
+     * @param name         The name of the weapon.
+     * @param attackBonus  The attack bonus provided by the weapon.
      */
-
-        public int getM_AttackPoints() {
-            return m_AttackPoints;
-        }
-
-    /**
-     * Set the attack points of the weapon.
-     *
-     * @param m_AttackPoints The new attack points to set.
-     */
-
-        public void setM_AttackPoints(int m_AttackPoints) {
-            this.m_AttackPoints = m_AttackPoints;
-        }
-
-    /**
-     * Inflict damage on a target character using the weapon.
-     *
-     * @param p_TargetCharacter The character to inflict damage upon.
-     */
-
-        public void inflictDamage(Character p_TargetCharacter){
-            if(p_TargetCharacter!=null){
-                p_TargetCharacter.receiveDamages(m_AttackPoints);
-            }
-        }
+    public Weapon(String name, int attackBonus) {
+        this.name = name;
+        this.attackBonus = attackBonus;
     }
 
+    /**
+     * Get the name of the weapon.
+     *
+     * @return The name of the weapon.
+     */
+    public String getName() {
+        return name;
+    }
 
+    /**
+     * Get the attack bonus provided by the weapon.
+     *
+     * @return The attack bonus of the weapon.
+     */
+    public int getAttackBonus() {
+        return attackBonus;
+    }
+}
