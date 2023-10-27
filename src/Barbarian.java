@@ -1,41 +1,13 @@
 /**
- * The Barbarian class represents a specific type of monster, Barbarian, which inherits from the Monster class.
+ * The Barbarian class represents a type of monster known as a "Barbarian" in the game.
  */
-
 public class Barbarian extends Monster {
- /**
-     * Default constructor for the Barbarian class. It initializes the properties of the Barbarian.
+    /**
+     * Constructs a Barbarian monster with custom attributes, such as name, strength, health points, and weapon.
      */
-    
     public Barbarian() {
-
-        /**
-        *Calls the constructor of the parent class Monster.
-        */
-        
-        super();
-        
-    /**
-         *   Increments the instance count of Barbarians.
-         */
-        
-        s_iNbBarbarianInstances++;
-
-     /**
-         *   Sets the label for the Barbarian..
-         */
-        
-        this.label = "Barbarian";
-    /**
-         *   Sets the type of weapon effective against this monster.
-         */
-        
-        m_sEffectiveWeaponType = "FireArrow";
-            /**
-         *   Displays information about the Barbarian monster.
-         */
-         
-        System.out.format("Le type de monstre est %s le nombre de %s est : %d l'arme qui lui fait des dégats à ce monstre est %s %n",this.label,this.label,s_iNbTrollInstances, m_sEffectiveWeaponType);
+        super("Barbarian", 50, 200, new Axe());
     }
-}
 
+    // Customize the attributes of the Barbarian based on the game rules, such as its strength, health points, and weapon.
+}
