@@ -1,15 +1,13 @@
-public class Bite extends MonsterWeapon{
+/**
+ * The Bite class represents a type of monster weapon known as "Bite" in the game.
+ */
+public class Bite extends MonsterWeapon {
     /**
-     * The `Bite` class represents a specific monster weapon: a bite.
-     * This class inherits from the `MonsterWeapon` class.
+     * Constructs a Bite weapon with a default name and attack bonus.
      */
     public Bite() {
-        /**
-         * Default constructor for the `Bite` class.
-         * Initializes the bite's attack points (4), critical countdown (6), and maximum rounds before critical (6).
-         */
-        super(4,6,6);
-
+        super("Bite", 10);
     }
 
+    // Here, you can customize the attributes of the Bite weapon based on your game's specifications, such as the damage it inflicts.
 }
