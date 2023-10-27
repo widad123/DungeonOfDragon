@@ -1,37 +1,11 @@
 /**
- * The HealthPotion class represents a health potion item in the game, which can be used by heroes.
+ * The HealthPotion class represents a type of potion that restores health in the game.
  */
-
-public class HealthPotion extends Item{
-
-        /**
-     * Constructs a health potion with the specified effect value.
-     *
-     * @param effectValue The amount by which the health of the hero is improved when using the potion.
-     */
-
-    public HealthPotion(int effectValue) {
-        super(effectValue);
-    }
-
-        /**
-     * Applies the health-improving effect of the potion to a hero.
-     *
-     * @param p_hero The hero to whom the health potion's effect is applied.
-     */
-    
-    @Override
-    public void applyEffect(Hero p_hero) {
-        p_hero.improveHealth(m_iEffectValue);
-    }
-
+public class HealthPotion extends Potion {
     /**
-     * Gets the effect value of the health potion, which represents the amount of health improvement it provides.
-     *
-     * @return The effect value of the health potion.
+     * Constructs a HealthPotion with a default name, health restoration value, and strength boost value.
      */
-    
-    public int getEffectValue() {
-        return m_iEffectValue;
+    public HealthPotion() {
+        super("HealthPotion", 10, 0); // Example of health points restored for a health potion.
     }
 }
